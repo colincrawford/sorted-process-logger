@@ -22,6 +22,13 @@ let start log_client pid time =
   let result = Hashtbl.add log_client.running_processes ~key:pid ~data:process in
   match result with | _ -> ()
 
+let%test "start adds a process to the log_client" =
+  let client = create () in
+  let () = start client "a" 1 in
+  match Hashtbl.find client.running_processes "a" with
+  | None -> false
+  | Some p -> (String.equal p.id "a") && (p.start_time = 1)
+
 exception PID_not_found
 
 let stop log_client pid =

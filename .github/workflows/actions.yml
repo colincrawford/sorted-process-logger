@@ -30,5 +30,11 @@ jobs:
           # Version of the OCaml compiler to initialise
           ocaml-version: 4.11.1 # optional, default is 4.08.1
 
+      - name: Install Dune
+        run: opam install dune
+
+      - name: Install dependencies
+        run: opam install . --deps-only
+
       - name: Run tests
         run: dune runtest

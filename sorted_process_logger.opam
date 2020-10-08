@@ -1,0 +1,15 @@
+opam-version: "2.0"
+name: "sorted_process_logger"
+version: "0.1"
+synopsis: "One-line description"
+description: """
+Longer description
+"""
+maintainer: "Colin Crawford <ccolin84@gmail.com>"
+authors: "Colin Crawford <ccolin84@gmail.com>"
+license: "MIT"
+homepage: "https://github.com/colinlcrawford/sorted-process-logger"
+bug-reports: "https://github.com/colinlcrawford/sorted-process-logger/issues"
+dev-repo: "git+https://github.com/colinlcrawford/sorted-process-logger"
+depends: ["ocaml" "core" "ppx_jane"]
+build: ["dune" "build" "-p" name "-j" jobs]
