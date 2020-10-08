@@ -31,10 +31,14 @@ jobs:
           ocaml-version: 4.11.1 # optional, default is 4.08.1
 
       - name: Install Dune
-        run: opam install dune
+        run: |
+          opam install dune
+          eval $(opam config env)
 
       - name: Install dependencies
         run: opam install . --deps-only
 
       - name: Run tests
-        run: dune runtest
+        run: |
+          eval $(opam config env)
+          dune runtest
